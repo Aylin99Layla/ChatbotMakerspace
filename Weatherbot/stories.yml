@@ -1,0 +1,54 @@
+version: "3.1"
+
+stories:
+  - story: "1"
+    steps:
+      - intent: inform_weather
+        entities:
+          - GPE: Kempten
+      - slot_was_set:
+        - location: Kempten
+      - action: action_weather
+      - action: utter_location
+
+  - story: "2"
+    steps:
+      - intent: inform_weather
+        entities:
+          - GPE: Stockholm
+      - slot_was_set:
+        - location: Stockholm
+      - action: action_weather
+      - action: utter_location
+
+  - story: "3"
+    steps:
+      - intent: inform_weather
+        entities:
+          - GPE: Vienna
+      - slot_was_set:
+        - location: Vienna
+      - action: action_weather
+      - action: utter_location
+
+  - story: "4"
+    steps:
+      - intent: inform_weather
+        entities:
+          - GPE: South Africa
+      - slot_was_set:
+        - location: South Africa
+      - action: action_weather
+      - action: utter_location
+
+  - story: "5"
+    steps:
+      - intent: inform_weather
+      - action: utter_ask_location
+      - intent: tell_location
+        entities:
+          - GPE: Spain
+      - slot_was_set:
+        - location: Spain
+      - action: action_weather
+      - action: utter_location

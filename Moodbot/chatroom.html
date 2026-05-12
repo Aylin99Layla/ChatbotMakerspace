@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Chatroom</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weberi/chatroom@master/dist/Chatroom.css" />
+   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weberi/chatroom@master/index.css">
+   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weberi/chatroom@master/themes/theme2.css" />
+</head>
+
+<body>
+   <div class="chat-container"></div>
+   <script src="https://cdn.jsdelivr.net/gh/weberi/chatroom@master/dist/Chatroom.js"></script>
+   <script type="text/javascript">
+      var chatroom = new window.Chatroom({
+         host: "https://improved-broccoli-9pr6qr65747hj57-5005.app.github.dev",
+         title: "Chat with a bot",
+         container: document.querySelector(".chat-container"),
+         welcomeMessage: "Nice to meet you.",
+         speechRecognition: "en-US",
+         voiceLang: "en-US"
+      });
+      chatroom.openChat();
+   </script>
+</body>
+
+</html>
