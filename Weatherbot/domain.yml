@@ -9,6 +9,7 @@ intents:
   - tell_location
   - goodbye
   - greet
+  - ask_question
 
 entities:
   - GPE
@@ -23,6 +24,7 @@ slots:
 
 actions:
   - action_weather
+  - action_chatgpt
 
 responses:
   utter_greet:

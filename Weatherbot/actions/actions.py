@@ -6,27 +6,43 @@
 
 
 from typing import Any, Text, Dict, List
+
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
+from openai import OpenAI
+from dotenv import load_dotenv
+import os
 
-class ActionWeather(Action):
+# .env laden
+load_dotenv()
+
+# OpenAI Client
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY")
+)
+
+class ActionChatGPT(Action):
 
     def name(self) -> Text:
-        return "action_weather"
+        return "action_chatgpt"
 
-    def run(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> List[Dict[Text, Any]]:
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        location = tracker.get_slot("location")
+        user_message = tracker.latest_message.get("text")
 
-        if location:
-            dispatcher.utter_message(text=f"The weather in {location} is sunny today.")
-        else:
-            dispatcher.utter_message(text="For which location?")
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a friendly AI assistant."},
+                {"role": "user", "content": user_message}
+            ]
+        )
+
+        answer = response.choices[0].message.content
+
+        dispatcher.utter_message(text=answer)
 
         return []

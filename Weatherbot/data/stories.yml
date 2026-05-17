@@ -52,3 +52,8 @@ stories:
         - location: Madrid
       - action: action_weather
       - action: utter_location
+
+  - story: chatgpt response
+    steps:
+    - intent: ask_question
+    - action: action_chatgpt     

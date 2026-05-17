@@ -55,3 +55,11 @@ nlu:
       - Oh, sorry, in [Italy](GPE)
       - I mean in [Kempten](GPE)
       - I mean in [South Africa](GPE)
+
+  - intent: ask_question
+    examples: |
+      - Who are you?
+      - Tell me a joke
+      - What is AI?
+      - Can you help me?
+      - Explain space    
