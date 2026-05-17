@@ -35,9 +35,9 @@ stories:
     steps:
       - intent: inform_weather
         entities:
-          - GPE: South Africa
+          - GPE: Cape Town
       - slot_was_set:
-        - location: South Africa
+        - location: Cape Town
       - action: action_weather
       - action: utter_location
 
@@ -47,8 +47,8 @@ stories:
       - action: utter_ask_location
       - intent: tell_location
         entities:
-          - GPE: Spain
+          - GPE: Madrid
       - slot_was_set:
-        - location: Spain
+        - location: Madrid
       - action: action_weather
       - action: utter_location

@@ -1,4 +1,13 @@
+# The config recipe.
+# https://rasa.com/docs/rasa/model-configuration/
 recipe: default.v1
+
+# The assistant project unique identifier
+# This default value must be replaced with a unique assistant name within your deployment
+assistant_id: 20260517-144149-zesty-poset
+
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
 language: en
 
 pipeline:
@@ -30,4 +39,4 @@ policies:
   max_history: 8
   epochs: 100
 - name: RulePolicy
-assistant_id: 20241124-225406-randomized-export
+
